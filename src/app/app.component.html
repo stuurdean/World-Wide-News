@@ -1,0 +1,61 @@
+
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>World Wide News</span>
+  <span class="example-spacer"></span>
+
+  <form class="example-form" #form="ngForm"  >
+
+    <mat-form-field>
+
+      <input name="name" #name="ngModel" ngModel required matInput placeholder="Enter Keyword" >
+    </mat-form-field>
+
+
+
+  </form>
+  <button [routerLink]="['/search',form.value.name]" routerLinkActive="routerLinkActive" type="submit" mat-icon-button  aria-label="Example icon button with a home icon">
+    <mat-icon>search</mat-icon>
+
+  </button>
+
+</mat-toolbar>
+<mat-drawer-container class="example-container" hasBackdrop="false">
+  <mat-drawer #drawer mode="over">
+    <ul>
+      <a routerLink="/home" routerLinkActive="active"><li>Home</li></a>
+
+
+    </ul>
+    <mat-divider></mat-divider>
+      <h4>Category</h4>
+
+    <ul>
+      <a routerLink="/General" routerLinkActive="active"><li>General</li></a>
+      <a routerLink="/Business" routerLinkActive="active"><li>Business</li></a>
+      <a routerLink="/Sports" routerLinkActive="active"><li>Sports</li></a>
+
+
+
+
+    </ul>
+    <mat-divider></mat-divider>
+      <h4>Publisher</h4>
+    <ul>
+      <li>BCC</li>
+      <li>CNN</li>
+
+    </ul>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
